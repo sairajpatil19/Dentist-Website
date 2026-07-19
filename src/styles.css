@@ -1,0 +1,157 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-ink: var(--ink);
+
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 8px 24px -8px rgb(15 23 42 / 0.08);
+  --shadow-elevated: 0 2px 4px 0 rgb(15 23 42 / 0.04), 0 24px 48px -12px rgb(15 23 42 / 0.18);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Deep navy primary */
+  --primary: oklch(0.24 0.05 254);
+  --primary-foreground: oklch(0.985 0.005 240);
+
+  /* Soft blue accent */
+  --accent: oklch(0.78 0.07 235);
+  --accent-foreground: oklch(0.24 0.05 254);
+
+  /* Emerald success */
+  --success: oklch(0.68 0.13 162);
+  --success-foreground: oklch(0.99 0 0);
+
+  --background: oklch(0.995 0.002 240);
+  --foreground: oklch(0.18 0.03 254);
+  --ink: oklch(0.14 0.03 254);
+
+  --surface: oklch(0.97 0.008 240);
+  --surface-foreground: oklch(0.22 0.03 254);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.03 254);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.03 254);
+
+  --secondary: oklch(0.96 0.01 240);
+  --secondary-foreground: oklch(0.24 0.05 254);
+
+  --muted: oklch(0.96 0.008 240);
+  --muted-foreground: oklch(0.5 0.02 250);
+
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.92 0.01 240);
+  --input: oklch(0.92 0.01 240);
+  --ring: oklch(0.55 0.08 250);
+}
+
+.dark {
+  --background: oklch(0.16 0.03 254);
+  --foreground: oklch(0.97 0.005 240);
+  --ink: oklch(0.99 0 0);
+  --surface: oklch(0.21 0.04 254);
+  --surface-foreground: oklch(0.97 0.005 240);
+  --card: oklch(0.21 0.04 254);
+  --card-foreground: oklch(0.97 0.005 240);
+  --popover: oklch(0.21 0.04 254);
+  --popover-foreground: oklch(0.97 0.005 240);
+  --primary: oklch(0.97 0.005 240);
+  --primary-foreground: oklch(0.18 0.03 254);
+  --secondary: oklch(0.26 0.04 254);
+  --secondary-foreground: oklch(0.97 0.005 240);
+  --muted: oklch(0.26 0.04 254);
+  --muted-foreground: oklch(0.72 0.02 250);
+  --accent: oklch(0.6 0.08 235);
+  --accent-foreground: oklch(0.99 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.6 0.05 250);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 80rem;
+  @media (min-width: 768px) { padding-inline: 2rem; }
+}
+
+@utility eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-muted-foreground);
+}
+
+@utility hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
