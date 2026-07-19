@@ -1,4 +1,4 @@
-# Dental Template "dentist-website-ten-omega.vercel.app"
+# Dental Template "[dentist-website-ten-omega.vercel.app](https://dentist-website-ten-omega.vercel.app)"
 
 A premium, modern dental clinic website built with **React**, **Vite**, **TypeScript**, and **Tailwind CSS**. The project is designed to be easily customizable for any dental clinic by editing a single configuration file.
 
